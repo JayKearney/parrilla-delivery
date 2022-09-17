@@ -1,12 +1,17 @@
 from django.shortcuts import render
 
 # Create your views here.
+from .models import Meals
 
 
 def meal_list(request):
-    pass
+    meal_list = Meals.objects.all()
+
+    context = {'meal_list' : meal_list ,}
+
+    return render(request , 'Meals/list.html' , context)
 
 
 
-def meal_detail(request):
+def meal_detail(request , slug):
     pass
