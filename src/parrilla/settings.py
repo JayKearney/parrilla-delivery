@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'reservation',
     'blog',
     'aboutus',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,11 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Default primary key field type
