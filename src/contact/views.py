@@ -1,3 +1,5 @@
+
+
 from django.shortcuts import render , redirect
 from django.core.mail import send_mail , BadHeaderError
 from django.http import HttpResponse  , HttpResponseRedirect
@@ -9,17 +11,17 @@ def send_email(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            phone = form.cleaned_data['phone']
+            subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
 
-            try :
-                send_mail(name,message,from_email['test@test.com'])
+            try : 
+                send_mail(subject,message,from_email,['admin@example.com'])
 
             except BadHeaderError:
                 return HttpResponse('invalid header') 
 
+            return redirect('contact:send_success')
     
 
     else:
@@ -34,4 +36,4 @@ def send_email(request):
 
 
 def send_success(request):
-    pass
+    return HttpResponse('Thank you for contacting Parrilla Argentina')
