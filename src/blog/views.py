@@ -4,13 +4,11 @@ from taggit.models import Tag
 from .forms import CommentForm
 from django.core.paginator import Paginator
 from django.db.models import Q
-
 # Create your views here.
 
 
 def post_list(request):
     post_list = Post.objects.all()
-
 
     ## search 
     search_query = request.GET.get('q')
@@ -21,8 +19,7 @@ def post_list(request):
             Q(tags__name__icontains= search_query)
         ).distinct()
 
-
-    paginator = Paginator(post_list, 1) #List of articles per page
+    paginator = Paginator(post_list, 3) # Show 2 posts per page
 
     page = request.GET.get('page')
     post_list = paginator.get_page(page)
@@ -31,6 +28,7 @@ def post_list(request):
     }
 
     return render(request , 'Post/post_list.html' , context)
+
 
 def post_detail(request , id):
     post_detail = Post.objects.get(id=id)
@@ -46,10 +44,9 @@ def post_detail(request , id):
             new_comment.user = request.user
             new_comment.post = post_detail
             new_comment.save()
-    
+
     else:
         comment_form = CommentForm()
-
 
     context = {
         'post_detail' : post_detail ,
@@ -62,6 +59,8 @@ def post_detail(request , id):
     return render(request , 'Post/post_detail.html' , context)
 
 
+
+
 def post_by_tag(request , tag):
     post_by_tag = Post.objects.filter(tags__name__in=[tag])
     context = {
@@ -69,7 +68,10 @@ def post_by_tag(request , tag):
     }
 
     return render(request , 'Post/post_list.html' , context)
-    
+
+
+
+
 
 def post_by_category(request , category):
     post_by_category = Post.objects.filter(category__category_name=category)
