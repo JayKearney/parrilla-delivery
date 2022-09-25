@@ -28,3 +28,8 @@ urlpatterns = [
     path('reserve_table/' , include ('reservation.urls' , namespace='reservation')),
     path('' , include ('home.urls' , namespace='home')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = "Parrilla Argentina AdminPanel"
+admin.site.site_title = "Parrilla App Admin "
+admin.site.site_index_title = "Welcome To Parrilla Argentina Admin Panel"
