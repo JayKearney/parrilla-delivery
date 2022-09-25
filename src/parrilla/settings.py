@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'taggit',
+    'bootstrap4',
+    'django_summernote',
 
     'meals',
     'reservation',
