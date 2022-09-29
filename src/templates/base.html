@@ -144,11 +144,14 @@
     <script src="{% static 'site_static/js/aos.js' %}"></script>
     
     <script>
-      var APIKey = "";
+      var mykey = config.MY_KEY;
     </script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key==initMap&v=weekly"
-    defer></script>
+     <script>
+      var secretkey = config.SECRET_KEY;
+    </script>
+     <script
+     src="https://maps.googleapis.com/maps/api/js?key=SECRET_KEY&v=weekly"
+     defer></script>
 
     <script src="{% static 'site_static/js/main.js' %}"></script>
   </body>
