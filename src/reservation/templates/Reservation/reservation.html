@@ -2,7 +2,6 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block body %}
-  
 
   
       <div class="main-wrap">
@@ -26,14 +25,12 @@
                 <h2 class="mb-3">Reservation</h2>
                 <p class="lead"> Make a booking enquiry. <br> We will send you a confirmation email as soon as possible.</p>
               </div>
+           
             </div>
             <div class="row justify-content-center">
               <div class="col-md-10 p-5 form-wrap">
                 
                 {% comment %}
-                  
-
-                  
                 <form action="#">
                   <div class="row mb-4">
                     <div class="form-group col-md-4">
@@ -95,13 +92,56 @@
                 </form>
                 {% endcomment %}
 
+                {% include 'messages.html' %}
+
                 <form action="" method="POST">
                   {% csrf_token %}
                   {% csrf_token %}
-                  {% bootstrap_form form %}
+
+                  <section class="col-sm-12">
+
+                      <div class="form-group">
+                        <label for=""> Name</label>
+                        <input type="text" class="form-control" placeholder="Name" name="name" required>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for=""> Phone</label>
+                        <input type="number" name="phone" class="form-control" placeholder="Phone" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for=""> Number of persons </label>
+                        <input type="number" name="number_of_persons" class="form-control" placeholder="Number of persons" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for=""> Date</label>
+                        <input type="date" name="Date" class="form-control" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for=""> Time</label>
+                        <input type="time" name="time" class="form-control" required>
+                      </div>
+                     
+                      
+                      <button type="submit" class="btn btn-primary">Reserve a table</button>
+                    
+                  </section>
+
+
+                  <!-- {% bootstrap_form form %}
+
                   {% buttons %}
                       <button type="submit" class="btn btn-primary">Reserve A Table</button>
-                  {% endbuttons %}
+                  {% endbuttons %} -->
                 </form>
 
 
@@ -110,9 +150,12 @@
           </div>
         </div> <!-- .section -->
 
-        <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.704319300114!2d-6.277059584281448!3d53.330647283588355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670df3d73cdc99%3A0x512471d00b9e4a5!2sBaste%20BBQ!5e0!3m2!1sen!2sie!4v1664305173587!5m2!1sen!2sie" width="80%" height="380" style="border:20;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p> 
+        <div class="map-one" style=" width:auto; padding:100px; margin-top:50px;">
+          <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.704319300114!2d-6.277059584281448!3d53.330647283588355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670df3d73cdc99%3A0x512471d00b9e4a5!2sBaste%20BBQ!5e0!3m2!1sen!2sie!4v1664305173587!5m2!1sen!2sie" width="80%" height="380" style="border:20;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p> 
+            </div>
         </div>
+        
 
         <div class="section" data-aos="fade">
           <div class="container">
