@@ -1,5 +1,6 @@
 from .models import Reservation
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .forms import ReserveTableForm
 
 from reservation.models import Reservation
@@ -12,6 +13,10 @@ def reserve_table(request):
 
         if reserve_form.is_valid():
             reserve_form.save()
+            messages.success(request, "Thank you for making your reservation. We will be in contact to confirm your booking.")
+        
+        # return redirect('/')
+
 
     context = {'form' : reserve_form}
 
