@@ -11,26 +11,31 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 import dj_database_url
 
-import os
+if os.path.isfile("env.py"):
+   import env
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r6684cs!&q0^($=fg573qw09+aozx5a1qirg-*%*2&xsa01zx2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['parrilla-argentina.herokuapp.com']
+ALLOWED_HOSTS = ALLOWED_HOSTS = ["parrilla-argentina.herokuapp.com/", "localhost"]
 
 
 # Application definition
@@ -41,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
 
     'taggit',
     'bootstrap4',
@@ -70,7 +77,7 @@ ROOT_URLCONF = 'parrilla.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,8 +104,10 @@ WSGI_APPLICATION = 'parrilla.wsgi.application'
 #}
 
 DATABASES = {
-   'default': dj_database_url.parse('postgres://xyaumwjdmbwpik:df5a3ef48a3a64b58e5a38831b5581401236efb241bcf66dab252c6444a3e936@ec2-54-75-184-144.eu-west-1.compute.amazonaws.com:5432/da6b07c6fk33ea')
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+
 
 
 # Password validation
@@ -138,10 +147,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
