@@ -13,12 +13,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('name',
+                 models.CharField(
+                     max_length=30)),
             ],
         ),
         migrations.AlterModelOptions(
             name='meals',
-            options={'verbose_name': 'meal', 'verbose_name_plural': 'meals'},
+            options={
+                'verbose_name': 'meal',
+                'verbose_name_plural': 'meals'},
         ),
     ]

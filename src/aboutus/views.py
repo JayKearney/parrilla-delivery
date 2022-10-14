@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import  AboutUs , Why_Choose_Us , Chef
+from .models import AboutUs, Why_Choose_Us, Chef
 
 # Create your views here.
+
 
 def aboutus_list(request):
     about = AboutUs.objects.last()
@@ -9,9 +10,9 @@ def aboutus_list(request):
     chef = Chef.objects.all()
 
     context = {
-        'about' : about , 
-        'why_choose_us' : why_choose_us , 
-        'chef' : chef
+        'about': about,
+        'why_choose_us': why_choose_us,
+        'chef': chef
     }
 
-    return render(request , 'aboutus/about.html' , context)
+    return render(request, 'aboutus/about.html', context)

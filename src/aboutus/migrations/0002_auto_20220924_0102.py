@@ -12,14 +12,20 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='aboutus',
-            options={'verbose_name': 'about us ', 'verbose_name_plural': 'about us '},
+            options={
+                'verbose_name': 'about us ',
+                'verbose_name_plural': 'about us '},
         ),
         migrations.AlterModelOptions(
             name='chef',
-            options={'verbose_name': 'chef', 'verbose_name_plural': 'chef'},
+            options={
+                'verbose_name': 'chef',
+                'verbose_name_plural': 'chef'},
         ),
         migrations.AlterModelOptions(
             name='why_choose_us',
-            options={'verbose_name': 'why choose us ', 'verbose_name_plural': 'why choose us '},
+            options={
+                'verbose_name': 'why choose us ',
+                'verbose_name_plural': 'why choose us '},
         ),
     ]

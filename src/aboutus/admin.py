@@ -2,9 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 # Register your models here.
-from .models import AboutUs , Why_Choose_Us , Chef
-
-
+from .models import AboutUs, Why_Choose_Us, Chef
 
 
 admin.site.register(AboutUs)

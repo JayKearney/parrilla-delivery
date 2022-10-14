@@ -2,8 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+
 class AboutUs(models.Model):
-    title = models.CharField(max_length = 50)
+    title = models.CharField(max_length=50)
     content = models.TextField()
     image = models.ImageField(upload_to='about_us/')
 
@@ -39,4 +40,3 @@ class Chef(models.Model):
 
     def __str__(self):
         return self.name
-

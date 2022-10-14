@@ -12,15 +12,22 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='category',
-            options={'verbose_name': ' category', 'verbose_name_plural': 'categories'},
+            options={
+                'verbose_name': ' category',
+                'verbose_name_plural': 'categories'},
         ),
         migrations.AlterModelOptions(
             name='post',
-            options={'verbose_name': ' post', 'verbose_name_plural': 'posts'},
+            options={
+                'verbose_name': ' post',
+                'verbose_name_plural': 'posts'},
         ),
         migrations.AddField(
             model_name='post',
             name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='blog/'),
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to='blog/'),
         ),
     ]
