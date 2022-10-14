@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-r6684cs!&q0^($=fg573qw09+aozx5a1qirg-*%*2&xsa01zx2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['parrilla-argentina.herokuapp.com']
 
 
 # Application definition
