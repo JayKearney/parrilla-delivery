@@ -145,9 +145,9 @@ The client was more focused on having a better functionality and performance for
 They see it as a family business, therefore, they don't expect customers to book through the phone as often and they would from the Website.
 Improvements will be done in mobile in future releases.
 
-Wireframes created with [Balsamiq](https://balsamiq.com/wireframes/?gclid=Cj0KCQiAubmPBhCyARIsAJWNpiMYzrk_0rLzl3vgYKRLXwnX7rpqyQiUFdyt3xHGpRiHlZlozwO_pvcaAvUFEALw_wcB). The project was developed from initial wireframes and some modifications were made during the development process to assure better usability. 
+Wireframes created with [Builder.io](https://www.builder.io/). The project was developed from initial wireframes and some modifications were made during the development process to assure better usability. But most of it stayed the same. I wanted it to be very visual, that's why the images frames take a lot of space.
 
-[Wireframes initial project](README_docs/wireframes/wireframes-v1.pdf)
+[Wireframes Home page Desktop](/src/readme_docs/screenshots/home-wireframe.png)
 Initial design was focused on monthly reporting. I decided to change this do daily reporting and put monthly reporting on the list for the next relese.
 
 The design included a long form for user to type addresses in, one after another. This idea was dropped, as it could run into a danger of loosing the data half way through the journey. I thought it is important that user saves data immediately after he types it in. 
@@ -160,7 +160,7 @@ The new design includes only one pair of start and destination address. After ty
 
 ![Screenshot of the canban board](README_docs/canban-board.png)
 
-Github issues were used to create the User stories and group them according to MoSCoW prioritization technique. Link to the project with live issues can be found [here](https://github.com/JoGorska/mileage-tracker/projects/1). The issues are currently in two categories - done or for the next relese. 
+Github issues were used to create the User stories and BUGS. and group them according to MoSCoW prioritization technique. Link to the project with live issues can be found [here](https://github.com/JoGorska/mileage-tracker/projects/1). The issues are currently in two categories - done or for the next relese. 
 
 The issues were than closed automaticaly when the pull request was linked to the issue. 
 
@@ -494,34 +494,11 @@ I have left two warnings in the code, which do not seem to have affected the wor
 248	The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.
 ```
 
-### Python beautify
-All pages were initialy put through [Python Formatter](https://codebeautify.org/python-formatter-beautifier) which automaticaly sorted most of the too long lines errors. Than the code was checked by pylint and problems were displayed in the console. Once the issues were cleared I have put all code though pep8 validator.
 
 ### Python validator
 
-The PEP8 style rules were followed with exceptions specified in the files setup.cfg and .pylintrc. Those files were used to custom configure python validation.
-More about .pylintrc can be found [here](https://www.getcodeflow.com/pylint-configuration.html) and about setup.cfg can be found [here](https://pep8.readthedocs.io/en/release-1.7.x/intro.html#configuration)
-
-| App name  |  file name | result |
-| ------ | ------ |------ |
-| mileage-tracker |  urls.py |  [all ok](README_docs/pep8-validator/01-mileage-tracker-urls.txt) |
-| traffic |  admin.py |  [all ok](README_docs/pep8-validator/02-traffic-admin.txt) |
-| traffic |  forms.py |  [all ok](README_docs/pep8-validator/02-traffic-forms.txt) |
-| traffic |  models.py |  [all ok](README_docs/pep8-validator/02-traffic-models.txt) |
-| traffic |  urls.py |  [all ok](README_docs/pep8-validator/02-traffic-urls.txt) |
-| traffic |  views.py |  [all ok](README_docs/pep8-validator/02-traffic-views.txt) |
-| users |  admin.py |  [all ok](README_docs/pep8-validator/03-users-admin.txt) |
-| users |  forms.py |  [all ok](README_docs/pep8-validator/03-users-forms.txt) |
-| users |  models.py |  [all ok](README_docs/pep8-validator/03-users-models.txt) |
-| users |  urls.py |  [all ok](README_docs/pep8-validator/03-users-urls.txt) |
-| users |  views.py |  [all ok](README_docs/pep8-validator/03-users-views.txt) |
-| visits |  admin.py |  [all ok](README_docs/pep8-validator/04-visits-admin.txt) |
-| visits |  forms.py |  [all ok](README_docs/pep8-validator/04-visits-forms.txt) |
-| visits |  mixins.py |  [all ok](README_docs/pep8-validator/04-visits-mixins.txt) |
-| visits |  models.py |  [all ok](README_docs/pep8-validator/04-visits-models.txt) |
-| visits |  urls.py |  [all ok](README_docs/pep8-validator/04-visits-urls.txt) |
-| visits |  views.py |  [all ok](README_docs/pep8-validator/04-visits-views.txt) |
-
+The PEP8 style rules were followed and double checked by installing [AutoPEP8](https://pypi.org/project/autopep8/)
+And running this command: autopep8 --in-place --aggressive --aggressive --recursive .
 ## Tests
 ------
 
