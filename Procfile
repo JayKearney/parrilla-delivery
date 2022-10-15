@@ -1,1 +1,1 @@
-web: gunicorn parrilla-delivery.wsgi
+web: gunicorn parrilla.wsgi
